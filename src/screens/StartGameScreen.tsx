@@ -1,9 +1,10 @@
-import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {ImageBackground, StyleSheet, Text, TextInput, View} from 'react-native';
 import React from 'react';
 import CustomButton from '../components/CustomButton';
 
 const StartGameScreen = () => {
   return (
+    <ImageBackground source={require('../assets/Images/background.png')} style={styles.backgroundImage}>
     <View style={styles.Container}>
       <Text style={styles.TextStyle}>Guess My Number</Text>
       <View style={styles.CardContainer}>
@@ -20,10 +21,16 @@ const StartGameScreen = () => {
         </View>
       </View>
     </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover', // or 'stretch' or 'contain'
+    justifyContent: 'center',
+  },
   Container: {
     flex: 1,
     alignItems: 'center',
