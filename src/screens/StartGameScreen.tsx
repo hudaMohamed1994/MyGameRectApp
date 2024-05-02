@@ -9,7 +9,7 @@ const StartGameScreen = () => {
       <View style={styles.CardContainer}>
         <Text style={styles.TextStyle}> Enter a Number</Text>
         <TextInput
-          inputMode={'numeric'}
+          keyboardType="number-pad"
           maxLength={2}
           style={styles.TextInputStyle}
           onChangeText={() => console.log('hi from Text input')}
@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
-    elevation : 20 , // this add shadow for andorid
+    elevation: 20, // this add shadow for andorid
     maxHeight: 400,
-    shadowOffset : {width : 10 , height : 10} ,  // this add shadow for IOS
+    shadowOffset: {width: 10, height: 10}, // this add shadow for IOS
   },
   ButtonContainer: {
     marginTop: 20,
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   TextStyle: {
-    marginBottom : 10 ,
+    marginBottom: 10,
     fontSize: 30,
     color: '#FFA500',
     alignContent: 'center',
@@ -56,11 +56,11 @@ const styles = StyleSheet.create({
     fontSize: 25,
     height: 50,
     color: '#FFA500',
-    fontFamily : 'bold' , 
+    fontFamily: 'bold',
     alignContent: 'center',
-    borderColor : '#FFA500' ,
+    borderColor: '#FFA500',
     borderRadius: 1,
-    margin : 8 ,
+    margin: 8,
     borderBottomWidth: 1,
   },
 });
