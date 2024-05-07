@@ -1,29 +1,26 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {Pressable, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 
-const CustomButton = ({ title }) => {
-    return (
-      <Pressable style={styles.button} >
-        <Text style={styles.buttonText}>{title}</Text>
-      </Pressable>
-    );
-  };
-  
-  const styles = StyleSheet.create({
-    button: {
-      backgroundColor: '#3498db',
-      paddingVertical: 12,
-      paddingHorizontal: 24,
-      borderRadius: 20, // Adjust the value to change the corner radius
-      overflow: 'hidden', // Ensures that content is clipped to the rounded border
-    },
-    buttonText: {
-      color: '#ffffff',
-      fontSize: 16,
-      fontWeight: 'bold',
-      textAlign: 'center',
-    },
-  });
+const CustomButton = ({title, onPress}) => {
+  return (
+    <Pressable style={styles.button} onPress={onPress}>
+      <Text style={styles.buttonText}>{title}</Text>
+    </Pressable>
+  );
+};
 
+const styles = StyleSheet.create({
+  button: {
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    overflow: 'hidden', // Ensures that content is clipped to the rounded border
+  },
+  buttonText: {
+    color: '#ffffff',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+});
 
-export default CustomButton
+export default CustomButton;

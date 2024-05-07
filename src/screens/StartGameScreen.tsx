@@ -1,37 +1,61 @@
-import {ImageBackground, StyleSheet, Text, TextInput, View} from 'react-native';
-import React from 'react';
+import {
+  Alert,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
+import React, {useState} from 'react';
 import CustomButton from '../components/CustomButton';
+import {useNavigation} from '@react-navigation/native';
 
 const StartGameScreen = () => {
+  const navigation = useNavigation();
+  const [inputNumber, setInputNumber] = useState('');
+
+  function checkInputText() {
+    var formattedInput = parseInt(inputNumber);
+    if (formattedInput <= 0) {
+      Alert.alert('please Enter A vaild number');
+    } else {
+      resetInputText()
+      navigation.navigate('HomeScreen');
+    }
+  }
+
+  function resetInputText() {
+    setInputNumber('');
+  }
+
   return (
-    <ImageBackground source={require('../assets/Images/background.png')} style={styles.backgroundImage}>
-    <View style={styles.Container}>
-      <Text style={styles.TextStyle}>Guess My Number</Text>
-      <View style={styles.CardContainer}>
-        <Text style={styles.TextStyle}> Enter a Number</Text>
-        <TextInput
-          keyboardType="number-pad"
-          maxLength={2}
-          style={styles.TextInputStyle}
-          onChangeText={() => console.log('hi from Text input')}
-        />
-        <View style={styles.ButtonContainer}>
-          <CustomButton title={'add'} />
-          <CustomButton title={'remove'} />
+      <View style={styles.Container}>
+        <Text style={styles.TextStyle}>Guess My Number</Text>
+        <View style={styles.CardContainer}>
+          <Text style={styles.TextStyle}> Enter a Number</Text>
+          <TextInput
+            keyboardType="number-pad"
+            maxLength={2}
+            style={styles.TextInputStyle}
+            value={inputNumber}
+            onChangeText={(value: string) => setInputNumber(value)}
+          />
+          <View style={styles.ButtonContainer}>
+            <View style={styles.ButtonView}>
+              <CustomButton onPress={checkInputText} title={'confirm'} />
+            </View>
+            <View style={styles.ButtonView}>
+              <CustomButton onPress={resetInputText} title={'reset'} />
+            </View>
+          </View>
         </View>
       </View>
-    </View>
-    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover', // or 'stretch' or 'contain'
-    justifyContent: 'center',
-  },
   Container: {
+    margin: 10,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -39,7 +63,7 @@ const styles = StyleSheet.create({
   CardContainer: {
     marginTop: 20,
     padding: 20,
-    backgroundColor: '#72063c',
+    backgroundColor: '#9c0d7f',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
@@ -50,25 +74,30 @@ const styles = StyleSheet.create({
   ButtonContainer: {
     marginTop: 20,
     flexDirection: 'row',
-    width: '70%',
     justifyContent: 'space-between',
   },
   TextStyle: {
     marginBottom: 10,
     fontSize: 30,
-    color: '#FFA500',
+    color: '#072527',
     alignContent: 'center',
   },
   TextInputStyle: {
     fontSize: 25,
     height: 50,
-    color: '#FFA500',
+    color: '#051210',
     fontFamily: 'bold',
     alignContent: 'center',
-    borderColor: '#FFA500',
+    borderColor: '#7300ff',
     borderRadius: 1,
     margin: 8,
     borderBottomWidth: 1,
+  },
+  ButtonView: {
+    margin: 5,
+    backgroundColor: '#7300ff',
+    borderRadius: 20,
+    flex: 1,
   },
 });
 export default StartGameScreen;

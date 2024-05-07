@@ -3,7 +3,9 @@ import React from 'react'
 
 const HomeScreen = () => {
   return (
+    
     <View>
+      
       <Text>HomeScreen</Text>
     </View>
   )
@@ -12,3 +14,6 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({})
 export default HomeScreen
+
+
+
