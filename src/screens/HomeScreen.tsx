@@ -2,8 +2,7 @@ import {Alert, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import CustomButton from '../components/CustomButton';
 
-const HomeScreen = ({route}) => {
-  const {userNumber} = route.params;
+const HomeScreen = ({userNumber}) => {
   var min = 1;
   var max = 100;
   const [randeomNum, setRundomNum] = useState(
@@ -14,14 +13,12 @@ const HomeScreen = ({route}) => {
   }
 
   function validateRandromNumber(guess: string, excludedNum: number) {
-    console.log('and henaaaaaaaaaaa');
     if (guess === 'lower') {
       max = randeomNum;
     } else {
       min = randeomNum;
     }
     setRundomNum(generateRandromNumber(excludedNum));
-    return randeomNum;
   }
 
   useEffect(() => {
