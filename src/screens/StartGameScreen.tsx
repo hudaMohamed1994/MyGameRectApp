@@ -20,7 +20,7 @@ const StartGameScreen = () => {
       Alert.alert('please Enter A vaild number');
     } else {
       resetInputText()
-      navigation.navigate('HomeScreen');
+      navigation.navigate('HomeScreen',{ userNumber: formattedInput});
     }
   }
 

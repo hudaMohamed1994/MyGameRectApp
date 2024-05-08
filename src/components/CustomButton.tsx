@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden', // Ensures that content is clipped to the rounded border
   },
   buttonText: {
-    color: '#ffffff',
+    color: '#00030192',
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
